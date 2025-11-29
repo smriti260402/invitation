@@ -17,6 +17,19 @@ import {
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import vintageimage from './assets/vintageimage.jpg'
+import bgImage from './assets/background.png'
+import venue1 from './assets/venue1.jpg';
+import venue2 from './assets/venue2.jpg';
+import venue3 from './assets/venue3.jpg';
+import venue4 from './assets/venue4.jpg';
+import venue5 from './assets/venue5.jpg';
+import venue6 from './assets/venue6.jpg';
+import venue7 from './assets/venue7.jpg';
+import venue8 from './assets/venue8.jpg';
+import venue9 from './assets/venue9.jpg';
+import video from './assets/video.mp4'
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -45,9 +58,7 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/ChatGPT Image Nov 28, 2025, 10_46_20 PM.png')",
-        }}
+        style={{ backgroundImage: `url(${bgImage})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
       </div>
@@ -290,30 +301,31 @@ function App() {
           {/* MAP */}
           {/* MAP */}
 <section className="mb-6 section-block">
-  <h3 className="section-heading text-2xl md:text-3xl font-extrabold text-center text-orange-400 animate-glow"> ⚓ Location</h3>
+  <h3 className="section-heading text-2xl md:text-3xl font-extrabold text-center text-orange-400 animate-glow">
+    ⚓ Location
+  </h3>
 
   <div
-  className="map-wrap rounded-xl overflow-hidden border border-yellow-900/20 shadow-inner text-center relative flex items-center justify-center"
-  style={{
-    backgroundImage: "url('/vintageimage.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundBlendMode: "multiply",
-    backgroundColor: "rgba(0,0,0,0.3)",
-    height: "12rem",      // increased height for desktop
-    minHeight: "8rem",    // minimum height for small screens
-  }}
->
-  <a
-    href="https://maps.app.goo.gl/uq7WJLchgTEEAsED9"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-amber-300 hover:text-amber-100 font-semibold text-lg underline z-10"
+    className="map-wrap rounded-xl overflow-hidden border border-yellow-900/20 shadow-inner text-center relative flex items-center justify-center"
+    style={{
+      backgroundImage: `url(${vintageimage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundBlendMode: "multiply",
+      backgroundColor: "rgba(0,0,0,0.3)",
+      height: "12rem",      // increased height for desktop
+      minHeight: "8rem",    // minimum height for small screens
+    }}
   >
-    Open Venue on Google Maps
-  </a>
-</div>
-
+    <a
+      href="https://maps.app.goo.gl/uq7WJLchgTEEAsED9"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-amber-300 hover:text-amber-100 font-semibold text-lg underline z-10"
+    >
+      Open Venue on Google Maps
+    </a>
+  </div>
 </section>
 
 
@@ -322,34 +334,57 @@ function App() {
 
           {/* CAROUSEL */}
           <section className="mb-6 section-block">
-            <h3 className="section-heading text-2xl md:text-3xl font-extrabold text-center text-orange-400 animate-glow">🖼️ Venue Photos</h3>
-            <div className="rounded-xl overflow-hidden border border-yellow-900/20 shadow-lg">
-              <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                navigation
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 2500, disableOnInteraction: false }}
-                loop
-                className="h-96 md:h-[40rem]"
-              >
-                {["/venue1.jpg","/venue2.jpg","/venue3.jpg","/venue4.jpg","/venue5.jpg","/venue6.jpg","/venue7.jpg","/venue8.jpg","/venue9.jpg"].map((src,i)=>(
-                  <SwiperSlide key={i}>
-                    <img src={src} className="w-full h-full object-cover wavy-glow" alt={`venue-${i}`} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </section>
+  <h3 className="section-heading text-2xl md:text-3xl font-extrabold text-center text-orange-400 animate-glow">
+    🖼️ Venue Photos
+  </h3>
+  <div className="rounded-xl overflow-hidden border border-yellow-900/20 shadow-lg">
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
+      loop
+      className="h-96 md:h-[40rem]"
+    >
+      {[
+        venue1,
+        venue2,
+        venue3,
+        venue4,
+        venue5,
+        venue6,
+        venue7,
+        venue8,
+        venue9
+      ].map((src, i) => (
+        <SwiperSlide key={i}>
+          <img
+            src={src}
+            className="w-full h-full object-cover wavy-glow"
+            alt={`venue-${i + 1}`}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
+
 
           <div className="skull-divider"><SkullIcon className="w-6 h-6 inline-block" /></div>
 
           {/* VIDEO */}
           <section className="mb-6 section-block">
-            <h3 className="section-heading text-2xl md:text-3xl font-extrabold text-center text-orange-400 animate-glow">📹 Walkthrough Video</h3>
-            <div className="rounded-xl overflow-hidden border border-amber-900/20 shadow-sm">
-              <video src="/video.mp4" className="w-full h-96 md:h-[40rem] object-cover" controls />
-            </div>
-          </section>
+  <h3 className="section-heading text-2xl md:text-3xl font-extrabold text-center text-orange-400 animate-glow">
+    📹 Walkthrough Video
+  </h3>
+  <div className="rounded-xl overflow-hidden border border-amber-900/20 shadow-sm">
+    <video
+      src={video}
+      className="w-full h-96 md:h-[40rem] object-cover"
+      controls
+    />
+  </div>
+</section>
 
           <div className="skull-divider"><SkullIcon className="w-6 h-6 inline-block" /></div>
 
